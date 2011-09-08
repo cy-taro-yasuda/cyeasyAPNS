@@ -127,10 +127,11 @@ class DbConnect
 	*/
 	function __construct()
 	{
-		$this->DB_HOST     = 'localhost';
-		$this->DB_USERNAME = 'apns'; // !!! CHANGE ME
-		$this->DB_PASSWORD = 'apnspass'; // !!! CHANGE ME
-		$this->DB_DATABASE = 'apnsdb'; // !!! CHANGE ME
+		$this->DB_HOST     = 'cyeasyapns.mysql.fluxflex.com';
+		$this->DB_USERNAME = 'cyeasyapns'; // !!! CHANGE ME
+		$this->DB_PASSWORD = '2qozwIX6J'; // !!! CHANGE ME
+		$this->DB_DATABASE = 'cyeasyapns'; // !!! CHANGE ME
+		$this->DB_PORT     = '3306'; // !!! CHANGE ME
 	}
 
 	/**
@@ -171,7 +172,7 @@ class DbConnect
 	*/
 	function connect()
 	{
-		self::$instance = new mysqli($this->DB_HOST, $this->DB_USERNAME, $this->DB_PASSWORD, $this->DB_DATABASE);
+		self::$instance = new mysqli($this->DB_HOST, $this->DB_USERNAME, $this->DB_PASSWORD, $this->DB_DATABASE, $this->DB_PORT);
 
 		if (mysqli_connect_errno()) {
 			$this->raise_error(printf("Connect failed: %s\n", mysqli_connect_error()));
